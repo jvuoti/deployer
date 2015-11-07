@@ -1,8 +1,19 @@
 {
     "compilerOptions": {
-		"target": "ES5"		
+        "module": "commonjs",
+        "target": "ES5",        
+        "noImplicitAny": true,
+        "listFiles": true,
+        "declaration": true,
+        "jsx": "react"	
     },
     "files": [
-        "app.ts"     
+        "js/model.ts",
+        "js/components/DeploymentRow.tsx",
+        "js/components/DeploymentsTable.tsx",
+        "js/app.tsx",
+        "typings/require.d.ts",
+        "typings/react/react.d.ts",
+        "typings/react-dom/react-dom.d.ts"
     ]
 }

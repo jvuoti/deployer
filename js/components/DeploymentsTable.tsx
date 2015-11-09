@@ -1,13 +1,31 @@
 ///<reference path="../../typings/react/react.d.ts"/>
+///<reference path="../../typings/whatwg-fetch.d.ts"/>
 ///<reference path="../model"/>
 
 import * as React from 'react'
 import * as Model from "../model";
 
-export default class DeploymentsTable extends React.Component<DeploymentsTableProps, any> {
+export default class DeploymentsTable extends React.Component<DeploymentsTableProps, DeploymentsState> {
+    constructor(){
+        super();
+        this.state = {
+            deployments: [],
+            loading: true
+        }
+    }
+    
+    componentDidMount() {
+        fetch(this.props.dataUrl).then(response =>{
+           this.state = {
+              deployments: response.json(),
+              loading: false
+           };
+        });
+    }
+    
     render(){
         var rows: any[] = [];        
-        this.props.deployments.forEach(function(deployment) {            
+        this.state.deployments.forEach(function(deployment) {            
             rows.push(<tr key={deployment.name}>
 				<td>{deployment.name}</td>
 				<td>{deployment.lastDeploymentTime.toDateString()}</td>
@@ -32,5 +50,10 @@ export default class DeploymentsTable extends React.Component<DeploymentsTablePr
 }
 
 export interface DeploymentsTableProps{
-    deployments: Model.Deployment[];
+    dataUrl: string;
+}
+
+export interface DeploymentsState{
+    deployments: Model.Deployment[]
+    loading: boolean
 }

@@ -8,11 +8,11 @@
         "jsx": "react"	
     },
     "files": [
-        "js/model.ts",
-        "js/components/DeploymentRow.tsx",
+        "js/model.ts",        
         "js/components/DeploymentsTable.tsx",
         "js/app.tsx",
         "typings/require.d.ts",
+        "typings/whatwg-fetch.d.ts",
         "typings/react/react.d.ts",
         "typings/react-dom/react-dom.d.ts"
     ]

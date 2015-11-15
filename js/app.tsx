@@ -19,6 +19,6 @@ import DeploymentsTable from "./components/DeploymentsTable"
 // 		new Model.Deployment('baz', new Date('2015-09-12T11:01:22Z'), "1.19.0")];
 
 ReactDOM.render(
- 	<DeploymentsTable dataUrl="/deployment"/>,
+ 	<DeploymentsTable dataUrl="http://localhost:3000/deployment"/>,
     document.getElementById('container')
 );

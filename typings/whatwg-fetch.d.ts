@@ -1,11 +1,11 @@
 ///<reference path="es6-promise/es6-promise.d.ts"/>
 
 declare var fetch: {
-    (url: string): Promise<IFetchResponse>;
-    (url: string, obj: IFetchParameters): Promise<IFetchResponse>;
+    <T>(url: string): Promise<IFetchResponse<T>>;
+    <T>(url: string, obj: IFetchParameters): Promise<IFetchResponse<T>>;
 };
 
-declare interface IFetchResponse {
+declare interface IFetchResponse<T> {
     type: string;
     status: string;
     ok: boolean;
@@ -13,7 +13,7 @@ declare interface IFetchResponse {
     headers: IFetchResponseHeader[],
     url: string;
     text(): string;
-    json(): any;
+    json(): Promise<T>;
 }
 
 declare interface IFetchResponseHeader{

@@ -2,11 +2,12 @@ var webpack = require('webpack');
 module.exports = {
     entry: [
         'webpack/hot/only-dev-server',
-        "./js/app.tsx"
+        './js/app.tsx'
     ],
     output: {
         path: __dirname + '/build',
-        filename: "bundle.js"
+        filename: "bundle.js",
+        publicPath: "/build/"
     },
     resolve: {
         // Add `.ts` and `.tsx` as a resolvable extension.
